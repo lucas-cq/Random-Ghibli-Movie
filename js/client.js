@@ -1,3 +1,4 @@
+const getMovie = function(){
 // This is the array that the ${randomMovie} fetches
 const items = [
   `2baf70d1-42bb-4437-b551-e5fed5a87abe`,
@@ -26,6 +27,7 @@ const items = [
 const randomMovie = items[Math.floor(Math.random()* items.length)];
 
 // This is the code that fetches the actual API
+
 fetch(`https://ghibliapi.herokuapp.com/films/${randomMovie}`)
   .then(function(response){
     if (!response.ok) {
@@ -49,3 +51,6 @@ fetch(`https://ghibliapi.herokuapp.com/films/${randomMovie}`)
   .catch(function(err){
     console.log(err);
   });
+}
+// This listens for a click on the button, then fecthes another random movie.
+document.querySelector('.new-movie').addEventListener('click', getMovie);
