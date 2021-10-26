@@ -1,3 +1,4 @@
+'use strict'
 const getMovie = function(){
 // This is the array that the ${randomMovie} fetches
 const items = [
@@ -39,17 +40,25 @@ fetch(`https://ghibliapi.herokuapp.com/films/${randomMovie}`)
   .then(function(data){
     const ghibliElement = document.querySelector('.random-ghibli');
     ghibliElement.innerHTML = `
-    <h2>${data.title}</h2>
-     <figure>
-      <img src="${data.image}" alt="temp!">
-      <figcaption>${data.title}. Original: ${data.original_title}</figcaption>
-    </figure>
+    <article>
+     <h2>${data.title}</h2>
+      <a href="${data.image}"><img src="${data.image}" alt="${data.title}" width="400" height="600"></a>
+      <p><strong>Original Title<br></strong> ${data.original_title}</p>
+      <p><strong>Released<br></strong> ${data.release_date}</p>
+      <p><strong>Description<br></strong> ${data.description}</p>
+      <p><strong>Tomatometer<br></strong> ${data.rt_score}%</p>
+      <p><strong>Director<br></strong> ${data.director}</p>
+      <p><strong>Producer<br></strong> ${data.producer}</p>
+    </article>
+  
     `;
     console.log(data);
   })
   // If the API is not found, this will display an error to the user
   .catch(function(err){
     console.log(err);
+    const ghibliElement = document.querySelector('.random-ghibli')
+    ghibliElement.innerHTML = `<h2>Error, Page Not Found</h2>`
   });
 }
 // This listens for a click on the button, then fecthes another random movie.
