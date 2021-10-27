@@ -20,7 +20,7 @@ p {
 .random-ghibli {
   display: flex;
   justify-content: center;
-  align-items: center;
+  flex-direction: row;
 }
 
 article {
