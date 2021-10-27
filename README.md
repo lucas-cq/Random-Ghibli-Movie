@@ -9,4 +9,4 @@ This was a fun project. My first challenge was finding an API that I liked and t
 
 ## Attributions
 * "Random" code from Fesal and Jessica.
-* Tony's _throw new Error('Not 200 OK');_ code.
+* Tony's "_throw new Error('Not 200 OK');_" code.
